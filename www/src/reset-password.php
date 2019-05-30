@@ -3,7 +3,7 @@
 if ($_GET["login"] && $_GET["hash"]) {
     require_once "init.php";
 
-    $urlToRedirect = 'http://192.168.22.27:8001/src/reset-password.php?login='
+    $urlToRedirect = $_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].'/src/reset-password.php?login='
                      . $_GET["login"] . '&hash=' . $_GET["hash"];
 
     $user = $queryBuilder->filterDataByCol("users", "hash", $_GET["hash"])[0];

@@ -15,7 +15,8 @@ if ($_POST["email"]) {
         
         
         To reset your password follow to that link below:
-        https://at-e4:8001/src/reset-password.php?login='
+        '
+        .$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].'/src/reset-password.php?login='
         . $user["login"] . '&hash=' . $user["hash"] . PHP_EOL;
     mail($user["email"], "Reset password", $message);
     unset($_SESSION["logged"]);

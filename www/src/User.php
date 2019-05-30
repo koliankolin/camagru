@@ -127,8 +127,8 @@ class User
         Password: ' . $this->password . '
         ------------------------
         
-        Please click this link to activate your account:
-        https://192.168.22.27:8001/src/verify.php?email=' . $this->email .
+        Please click this link to activate your account:'
+        .$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].'/src/verify.php?email=' . $this->email .
             '&hash='. $hash . '
         
         ';
