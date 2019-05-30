@@ -1,0 +1,55 @@
+.container {
+    width: 70vw;
+    margin: 0 auto;
+}
+
+.empty {
+    /*background-color: #ff4a4e;*/
+    border: 2px solid black;
+}
+
+.invisible {
+    display: none;
+}
+
+#pizza {
+    background-image: url("../img/pizza.png");
+}
+
+.fill {
+    position: absolute;
+
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+}
+
+.hover {
+    border: 2px dashed grey;
+    opacity: 0.5;
+    box-shadow: 0 0 75px 15px rgba(92,130,255,0.53);
+}
+
+#hidden {
+    display: none;
+}
+
+#saveImg {
+    display: none;
+}
+
+#btnSaveToBase {
+    display: none;
+}
+
+#videoOn {
+    display: none;
+}
+
+.isLiked {
+    box-shadow: 0 0 75px 15px rgba(92,130,255,0.53);
+}
+
+.isNotLiked {
+    box-shadow: none;
+}
