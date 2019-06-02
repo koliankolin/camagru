@@ -208,6 +208,14 @@ class QueryBuilder
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    static function printRedirect($redirect_page)
+    {
+        $str_redir = "'" . $redirect_page . "'";
+        echo '<script>' .
+            "window.location.href = " . $str_redir. ";
+          </script>";
+    }
+
     static function printAlertRedirect($message, $redirect_page)
     {
         $str_mes = "'" . $message . "'";

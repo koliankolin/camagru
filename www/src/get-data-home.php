@@ -20,36 +20,40 @@ if (isset($_POST["getData"])) {
         }
         $response = "";
 
+        $idxId = $start;
         for ($idxData = 0; $idxData < count($data); $idxData++) {
             $response .= '
                   
-            <div class="image">
-                    <p><a href=\'../index.php?'.$data[$idxData]["login"].'\'>'.$data[$idxData]["login"].'</a> added photo:</p>
-                    <img src='.$data[$idxData]["photo"].' alt=\'\' width=\'350\' height=\'350\'>
-                <div id=\'comments_'.$idxData.'\'>';
+            <div class="card">
+                    
+                    <img src='.$data[$idxData]["photo"].' alt=\'photo\' class=\'card-img-top\'>
+                <div class="card-body text-center">
+                <h5 class="card-title"><a href=\'../index.php?'.$data[$idxData]["login"].'\'>'.$data[$idxData]["login"].'</a> added photo:</h5>
+                <p class="card-text">COMMENTS:</p>
+                <div id=\'comments_'.$idxId.'\'>';
             if (($comments = $queryBuilder->filterDataByCol("comments", "photo_id", $data[$idxData]["photo_id"]))) {
                 foreach ($comments as $comment) {
-                    $response .= '<p>'.$comment["comment"].'</p>';
+                    $response .= '<p class="card-text">'.$comment["comment"].'</p>';
                 }
             }
             if (isset($_SESSION["logged"])) {
 
-                $response .= '<form class="addComment" action=\'src/add-comment.php?photo_id='
-                        .$data[$idxData]["photo_id"].
-                        '&login='
-                        .$data[$idxData]["login"].
-                        '&id_block='
-                        .$idxData.'\' method="post">';
-                $response .= '<input class="comment" id=\'comment_'
-                        .$idxData.
-                        '\' name="comment" type="text" width="500" required="required">
+                $response .= '<div class="form-group"><form class="addComment" action=\'src/add-comment-home.php?photo_id='
+                    . $data[$idxData]["photo_id"] .
+                    '&login='
+                    . $data[$idxData]["login"] .
+                    '&id_block='
+                    . $idxData . '\' method="post">';
+                $response .= '<input class="comment form-control" id=\'comment_'
+                    . $idxId .
+                    '\' name="comment" type="text" width="500" required="required"><br>
                         <button type="submit" class="btn btn-primary">Add Comment</button>
                     </form>
                 </div>
                 ';
             }
             $response .= '
-                <div id=\'likes_'.$idxData.'\'>';
+                <div id=\'likes_'.$idxId.'\'>';
 
             $likes = $queryBuilder->filterDataByCol("likes", "photo_id", $data[$idxData]["photo_id"]);
             $arrLiked = [];
@@ -57,27 +61,32 @@ if (isset($_POST["getData"])) {
                 $arrLiked[] = $like["login_who_likes"];
             }
             $isLiked = in_array($sessionLogin, $arrLiked);
-            $response .= '
-                <form class="formLike" action=\'src/add-like.php?photo_id='
-                .$data[$idxData]["photo_id"].
-                '&user_id='
-                .$data[$idxData]["user_id"].
-                '&login='
-                .$data[$idxData]["login"].
-                '&id_block='
-                .$idxData.'\' method="post">
+            if (isset($_SESSION["logged"])) {
+                $response .= '
+                <form class="formLike" action=\'src/add-like-home.php?photo_id='
+                    . $data[$idxData]["photo_id"] .
+                    '&user_id='
+                    . $data[$idxData]["user_id"] .
+                    '&login='
+                    . $data[$idxData]["login"] .
+                    '&id_block='
+                    . $idxData . '\' method="post">
                     <button id=\'btnLike_'
-                .$idxData.'\' type="submit" class=\'';
-                   if ($isLiked)
-                       $response .= "btn btn-primary";
-                    else
-                        $response .= "btn btn-outline-primary";
-                $response .= '\'>Like</button>';
+                    . $idxId . '\' type="submit" class=\'';
+                if ($isLiked)
+                    $response .= "btn btn-primary";
+                else
+                    $response .= "btn btn-outline-primary";
+                $response .= '\'>Like</button></form>';
+            }
             if ($likes) {
                 $countLikes = count($likes);
-                $response .= '</form><p id=\'countLikes_'.$idxData.'\'>'.$countLikes.'</p>';
+                $response .= '<p id=\'countLikes_'.$idxId.'\'>';
+                $response .= (!isset($_SESSION["logged"])) ? "likes: " : "";
+                $response .= $countLikes.'</p>';
             }
-            $response .='</div></div>';
+            $response .='</div></div></div></div>';
+            $idxId++;
         }
         echo $response;
     } else

@@ -24,13 +24,15 @@ if ($_GET["login"] && $_GET["hash"]) {
 
 require_once "template/header.php";
 ?>
+<div class="form-group text-center">
     <form action="" method="post">
         <label for="new_password">Enter new password:
-            <input id="new_password" name="new_password" type="password"></label><br>
+            <input id="new_password" class="form-control" name="new_password" type="password"></label><br>
         <label for="new_password">Confirm new password:
-            <input id="confirm_password" name="confirm_password" type="password"></label><br>
-        <button class="btn" type="submit">Save Changes</button>
+            <input id="confirm_password" class="form-control" name="confirm_password" type="password"></label><br>
+        <button class="btn btn-primary" type="submit">Save Changes</button>
     </form>
+</div>
     <script>
         let password = document.getElementById("new_password");
         let confirmPassword = document.getElementById("confirm_password");

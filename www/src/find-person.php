@@ -5,23 +5,33 @@
 require_once "template/header.php";
 
 ?>
-    <h1>Find another person</h1>
-<div id="divFind" class="form-group">
-    <form id="findForm" action="check-find-person-form.php" method="get">
-        <label for="name">Name:
-            <input id="name" class="form-control" name="first_name" type="text"></label><br>
-        <label for="surname">Surname:
-            <input id="surname" class="form-control" name="surname" type="text"></label><br>
-        <label for="age_from">Age From:
-            <input id="age_from" class="form-control" name="age_from" type="number"></label><br>
-        <label for="age_to">Age To:
-            <input id="age_to" class="form-control" name="age_to" type="number"></label><br>
-        <input id="sex_f" class="form-control" name="sex" value="2" type="radio" checked><label for="sex_f">Female</label><br>
-        <input id="sex_m" class="form-control" name="sex" value="1" type="radio"><label for="sex_m">Male</label><br>
-        <button class="btn btn-primary" type="submit">Find Somebody</button>
-    </form>
+<div class="text-center">
+<!--<div class="row">-->
+<!--    <div class="col-md-5">-->
+        <h1>Find another person</h1>
+    <div id="divFind" class="form-group">
+        <form id="findForm" action="check-find-person-form.php" method="get">
+            <label for="name">Name:
+                <input id="name" class="form-control" name="first_name" type="text"></label><br>
+            <label for="surname">Surname:
+                <input id="surname" class="form-control" name="surname" type="text"></label><br>
+            <label for="age_from">Age From:
+                <input id="age_from" class="form-control" name="age_from" type="number"></label><br>
+            <label for="age_to">Age To:
+                <input id="age_to" class="form-control" name="age_to" type="number"></label><br>
+            <label for="sex_f" style="margin-right: 1.5vw;">Female<input id="sex_f" class="form-control" name="sex" value="2" type="radio" checked></label>
+            <label for="sex_m">Male<input id="sex_m" class="form-control" name="sex" value="1" type="radio"></label><br>
+            <button class="btn btn-primary" type="submit">Find Somebody</button>
+        </form>
+<!--    </div>-->
+<!--    </div>-->
 </div>
-    <div id="idUsers" class="users"></div>
+    <div class="users text-center">
+<!--        <div class="col-md-5">-->
+            <div class="card" id="idUsers"></div>
+<!--        </div>-->
+    </div>
+</div>
 <script>
     $(document).ready(function () {
         let findForm = $("#findForm");

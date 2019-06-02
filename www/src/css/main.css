@@ -1,5 +1,13 @@
+body {
+    background-color: #edeef0;
+}
+
+#imageLoader {
+    display: none;
+}
+
 .container {
-    width: 70vw;
+    width: 80vw;
     margin: 0 auto;
 }
 
@@ -12,16 +20,29 @@
     display: none;
 }
 
+#psyDuck {
+    background-image: url("../img/psyduck.png");
+    top: 18vw;
+    left: 0;
+}
+
+#kyle {
+    background-image: url("../img/kyle.png");
+    top: 30vw;
+    left: 0;
+}
+
 #pizza {
     background-image: url("../img/pizza.png");
+
 }
 
 .fill {
     position: absolute;
 
     background-size: cover;
-    width: 150px;
-    height: 150px;
+    width: 10vw;
+    height: 10vw;
 }
 
 .hover {
@@ -53,3 +74,8 @@
 .isNotLiked {
     box-shadow: none;
 }
+
+/*#photo, #hidden {*/
+/*    width: 35vw;*/
+/*    height: 30vw;*/
+/*}*/

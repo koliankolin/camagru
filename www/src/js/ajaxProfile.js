@@ -2,7 +2,6 @@
 
 $(document).ready(function () {
     let forms = document.getElementsByClassName("addComment");
-    console.log(forms);
 
     for (let elem of forms) {
         elem.addEventListener("submit", function (e) {

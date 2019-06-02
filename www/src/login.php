@@ -1,13 +1,13 @@
 <?php
 
 require_once "template/header.php"?>
-<div id="divLoginForm" class="form-group">
+<div id="divLoginForm" class="form-group text-center">
     <form id="loginForm" method="post" action="src/check-login.php">
         <label for="login">Enter Login:
-            <input id="login" class="form-control" type="text" name="login" required></label>
+            <input id="login" class="form-control" type="text" name="login" placeholder="login" required></label>
         <br>
         <label for="password">Enter Password:
-            <input id="password" class="form-control" type="password" name="password" required></label><br>
+            <input id="password" class="form-control" type="password" name="password" placeholder="password" required></label><br>
         <button class="btn btn-primary" type="submit">Login</button>
     </form>
     <a href="src/change-password.php">Forgot password</a><br>

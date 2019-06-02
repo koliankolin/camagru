@@ -4,7 +4,7 @@
 
 require_once "template/header.php";
 ?>
-<div id="divForm" class="form-group">
+<div id="divForm" class="form-group text-center">
     <form id="registerForm" action="src/check-register.php" method="post">
         <label for="login">Enter Login:
             <input id="login" class="form-control" name="login" type="text" required></label><br>
@@ -40,7 +40,7 @@ require_once "template/header.php";
                         divForm.appendChild(caution);
                     }
                     else {
-                        window.location.href = "../index.php";
+                        window.location.href = "email-was-sent.php";
                     }
                 }
             })
