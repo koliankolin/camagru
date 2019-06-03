@@ -28,7 +28,6 @@ if ($user["login"] !== $_POST["login"]) {
                 "photo" => $photosNewPath[$i]
         ]);
     }
-
 }
 if ($_POST["email"] !== $user["email"]) {
     $queryBuilder->updateDataById("users", "id", $user["id"], [
@@ -40,12 +39,13 @@ if ($_POST["email"] !== $user["email"]) {
     Hello, dear ' . $user["login"] . '
 
     Your email was changed and you need to verify it. Follow that link to do that:
-            https://192.168.22.27:8001/src/verify.php?email=' . $_POST["email"] .
-        '&hash=' . $user["hash"] . '
-
+    '
+        .$_SERVER["REQUEST_SCHEME"].'://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].'/src/verify.php?email=' . $_POST["email"] .
+        '&hash='. $user["hash"] . '
     ';
     mail($_POST["email"], "Verify email", $message);
 }
+QueryBuilder::printRedirect("../index.php");
 ?>
 
 <!doctype html>

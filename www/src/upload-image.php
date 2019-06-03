@@ -7,6 +7,12 @@ try {
     $login = $_SESSION["logged"]["login"];
     if (!empty($_FILES["myImage"]["name"])) {
         $imgName = $_FILES["myImage"]["name"];
+
+        if (!in_array(pathinfo($imgName)["extension"], ["png", "gif", "jpg", "jpeg"])) {
+            QueryBuilder::printAlertRedirect("Please, choose photo to load BUT NOT another file !!", "../index.php?$login");
+            die;
+        }
+
         $imgContent = file_get_contents($_FILES["myImage"]["tmp_name"]);
 
         $dirLoad = "/var/www/html/data/" . $_SESSION["logged"]["login"] . "/";

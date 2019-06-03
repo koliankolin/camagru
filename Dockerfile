@@ -13,7 +13,7 @@ RUN apt-get update && \
 # Installs php modules
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-RUN mkdir /var/www/html/src
+#RUN mkdir /var/www/html/src
 RUN mkdir /var/www/html/data && chown -R www-data:www-data /var/www/html/data
 
 

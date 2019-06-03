@@ -19,11 +19,11 @@ $queryBuilder = new QueryBuilder(["db" => $db]);
 $userId = $queryBuilder->filterDataByCol("users",
     "login", $login)[0]["id"];
 
-$photos = array_reverse($queryBuilder->filterDataByCol("photos", "user_id", $userId));
-
-$userInfo = $queryBuilder->filterDataByCol("users_info",
-    "user_id", $userId);
-
+if(!empty($userId)){
+    $photos = array_reverse($queryBuilder->filterDataByCol("photos", "user_id", $userId));
+    $userInfo = $queryBuilder->filterDataByCol("users_info",
+        "user_id", $userId);
+}
 
 require_once "template/header.php";
 ?>

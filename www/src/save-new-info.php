@@ -21,8 +21,7 @@ if (empty($data["age"])) {
 if (($isFilled) ? $queryBuilder->updateDataById("users_info",
     "user_id", $userId, $data) :
     $queryBuilder->insertDataIntoTable("users_info", $data, false, true)) {
-    QueryBuilder::printAlertRedirect("Your Profile Info was Updated SUCCESSFULLY !!",
-        "../index.php?$login");
+    QueryBuilder::printRedirect("../index.php?$login");
 }
 else
     QueryBuilder::printAlertRedirect("Smth went WRONG !!", "change-info.php");

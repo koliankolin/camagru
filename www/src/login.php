@@ -10,7 +10,7 @@ require_once "template/header.php"?>
             <input id="password" class="form-control" type="password" name="password" placeholder="password" required></label><br>
         <button class="btn btn-primary" type="submit">Login</button>
     </form>
-    <a href="src/change-password.php">Forgot password</a><br>
+    <a href="src/change-password.php" style="display: inline-block; margin-top: 1vw;">Forgot password</a><br>
 </div>
 <script>
     $(document).ready(function () {

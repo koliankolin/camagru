@@ -7,11 +7,11 @@ require_once "template/header.php";
 <div id="divForm" class="form-group text-center">
     <form id="registerForm" action="src/check-register.php" method="post">
         <label for="login">Enter Login:
-            <input id="login" class="form-control" name="login" type="text" required></label><br>
+            <input id="login" class="form-control" name="login" type="text" placeholder="login" required></label><br>
         <label for="email">Enter Email:
-            <input id="email" class="form-control" name="email" type="email" required></label><br>
+            <input id="email" class="form-control" name="email" type="email" placeholder="example@mail.ru" required></label><br>
         <label for="password">Enter Password:
-            <input id="password" class="form-control" name="password" type="password" required></label><br>
+            <input id="password" class="form-control" name="password" type="password" placeholder="password" required></label><br>
         <button type="submit" class="btn btn-primary">Register User</button>
     </form>
 </div>
@@ -40,7 +40,7 @@ require_once "template/header.php";
                         divForm.appendChild(caution);
                     }
                     else {
-                        window.location.href = "email-was-sent.php";
+                        window.location.href = "src/email-was-sent.php";
                     }
                 }
             })

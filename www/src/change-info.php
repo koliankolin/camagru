@@ -17,16 +17,18 @@ $isMale = $userInfo[0]["sex"] === 1;
 
 require_once "template/header.php";
 ?>
+<div class="form-group text-center">
     <form action="save-new-info.php?<?= $login;?>" method="post">
         <label for="first_name">Enter New Real Name:
-            <input id="first_name" name="first_name" type="text" value="<?= $userInfo[0]["first_name"];?>"></label><br>
+            <input id="first_name" class="form-control" name="first_name" type="text" placeholder="Name" value="<?= $userInfo[0]["first_name"];?>"></label><br>
         <label for="surname">Enter New Real Surname:
-            <input id="surname" name="surname" type="text" value="<?= $userInfo[0]["surname"];?>"></label><br>
+            <input id="surname" class="form-control" name="surname" type="text" placeholder="Surname" value="<?= $userInfo[0]["surname"];?>"></label><br>
         <label for="age">Enter New Real Age:
-            <input id="age" name="age" type="number" value="<?= $userInfo[0]["age"];?>"></label><br>
-        Enter New Real Sex:
-            <input id="sex_f" name="sex" type="radio" value="2" <?if($isMale) echo "checked";?>><label for="sex_f">Female</label>
-            <input id="sex_m" name="sex" type="radio" value="1" <?if(!$isMale) echo "checked";?>><label for="sex_m">Male</label><br>
-        <button class="btn" type="submit">Save Changes</button>
+            <input id="age" class="form-control" name="age" type="number" placeholder="Age" value="<?= $userInfo[0]["age"];?>"></label><br>
+        <p>Enter New Real Sex: </p>
+            <input id="sex_f" style="margin-right: 0.5vw;" name="sex" type="radio" value="2" <?if($isMale) echo "checked";?>><label for="sex_f" style="margin-right: 0.5vw;">Female</label>
+            <input id="sex_m" style="margin-right: 0.5vw;" name="sex" type="radio" value="1" <?if(!$isMale) echo "checked";?>><label for="sex_m" style="margin-right: 0.5vw;">Male</label><br>
+        <button class="btn btn-primary" type="submit">Save Changes</button>
     </form>
+</div>
 <?require_once "template/footer.php";?>

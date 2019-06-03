@@ -1,6 +1,14 @@
 <?php
 
-require_once "src/init.php";
+require "config/database.php";
+require_once "src/User.php";
+require_once "src/functions.php";
+
+session_start();
+
+$db = new PDO($DB_DNS, $DB_USER, $DB_PASSWORD);
+$queryBuilder = new QueryBuilder(["db" => $db]);
+
 
 $logins = $queryBuilder->getAllLogins();
 $path = $_SERVER["QUERY_STRING"];
