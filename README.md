@@ -17,7 +17,7 @@ The main idea is to repeat functionality of Intagram and Snapchat
 4. Application is started on 8080 port for http and on 8001 for https
 
 
-Already done:
+#### Already done:
 
 * Login, Logout, Sign Up, Change email, password, etc.
 * Ability to drag and drop picture on steam of web-camera
@@ -25,6 +25,6 @@ Already done:
 * Ability to add likes and comments
 * Users' profiles
 
-TODO:
+#### TODO:
 
 * Refactor code with MVC pattern and with using MVC-framework
